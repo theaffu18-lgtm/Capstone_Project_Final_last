@@ -24,7 +24,7 @@ commonRouter.post('/login',async(req,res)=>
   res.cookie("token", token, {
     httpOnly: true,
     sameSite: "None",
-    secure: false,
+    secure: true,
     maxAge: 24 * 60 * 60 * 1000,// 1 day
   });
   //send res
