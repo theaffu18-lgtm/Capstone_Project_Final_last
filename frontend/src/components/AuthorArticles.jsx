@@ -50,7 +50,8 @@ function AuthorArticles() {
   }, [user]);
 
 
-//open article when clicked read article btn
+
+// open article when clicked read article btn
 const openArticle = async (article) => {
 
   try {
@@ -58,16 +59,15 @@ const openArticle = async (article) => {
     console.log("Opening article:", article);
 
     const res = await axios.get(
-      `http://localhost:4000/author-api/article/${article._id}`,
+      `${API_BASE}/author-api/article/${article._id}`,
       {
         withCredentials: true
       }
     );
-     navigate(`/article/${article._id}`, {
+
+    navigate(`/article/${article._id}`, {
       state: res.data.payload
     });
-
-    
 
   } catch (err) {
 
