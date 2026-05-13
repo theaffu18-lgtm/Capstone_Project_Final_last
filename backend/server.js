@@ -12,10 +12,11 @@ config(); //process.env
 
 //Create express application
 const app = exp();
-app.use(cors({
-  origin: ["https://blog-app-alpha-lyart.vercel.app/","http://localhost:5173"],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: ["https://blog-app-alpha-lyart.vercel.app/","http://localhost:5173"],
+//   credentials: true
+// }));
+app.use(cors())
 //add body parser middleware
 app.use(exp.json());
 //add cookie parser middleware
