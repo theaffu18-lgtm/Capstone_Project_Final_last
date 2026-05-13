@@ -205,7 +205,7 @@ function ArticleByID() {
           )}
           
 
-          {["USER", "user", "User"].includes(req.user?.role) && (
+          {["USER", "user", "User"].includes(user?.role) && (
   <form onSubmit={addComment} className="mt-12 space-y-4">
 
     <textarea
