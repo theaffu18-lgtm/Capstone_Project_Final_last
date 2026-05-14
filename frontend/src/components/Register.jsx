@@ -41,7 +41,7 @@ function Register() {
       formData.append(key, userObj[key]);
     });
     if (profileImageUrl && profileImageUrl[0]) {
-      formData.append("profilePic", profileImageUrl[0]);
+      formData.append("profileImageUrl", profileImageUrl[0]);
     }
 
     try {
