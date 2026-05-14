@@ -37,7 +37,7 @@ commonRouter.get('/logout',limiter, (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     sameSite: "None",
-    secure: false,
+    secure: true,
   });
 
   res.status(200).json({ message: 'Logged out successfully' });
