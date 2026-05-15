@@ -126,20 +126,29 @@ function ArticleByID() {
     });
   };
 
-  // FIXED: uses endpoint variable
-  const refreshArticle = async () => {
-    try {
-      const res = await axios.get(endpoint, {
-        withCredentials: true,
-      });
+const refreshArticle = async () => {
 
-      setArticle(res.data.payload);
-    } catch (err) {
-      setError(
-        err.response?.data?.message || "Failed to load article"
-      );
-    }
-  };
+  try {
+
+    console.log("Refreshing from:", endpoint);
+
+    const res = await axios.get(endpoint, {
+      withCredentials: true,
+    });
+
+    setArticle(res.data.payload);
+
+  } catch (err) {
+
+    console.log("REFRESH ERROR:", err.response?.data);
+
+    setError(
+      err.response?.data?.message ||
+      "Failed to load article"
+    );
+  }
+};
+
 
   const addComment = async (e) => {
     e.preventDefault();
