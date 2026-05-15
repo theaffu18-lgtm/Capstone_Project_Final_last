@@ -174,9 +174,10 @@ const refreshArticle = async () => {
 );
 
       toast.success("Comment added successfully");
+      
 
       setComment("");
-
+      navigate("/article/" + id, { replace: true });
       await refreshArticle();
     } catch (err) {
       toast.error(
