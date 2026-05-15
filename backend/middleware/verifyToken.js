@@ -1,50 +1,47 @@
 import jwt from "jsonwebtoken";
-import { config } from "dotenv";
 
-config();
+export const verifyToken = (role) => {
 
-export const verifyToken = (...allowedRoles) => {
-  return async (req, res, next) => {
+  return (req, res, next) => {
 
     try {
-      
 
-      // read token from cookies
-      let token = req.cookies.token;
-      console.log("token:", token);
-      console.log(req.cookies);
+      // get token from cookies
+      const token = req.cookies.token;
 
       if (!token) {
-        return res.status(401).json({ message: "Unauthorized request. Please login." });
+        return res.status(401).json({
+          message: "Unauthorized. Token missing."
+        });
       }
 
       // verify token
-      let decodedToken = jwt.verify(token, process.env.JWT_SECRETKEY);
+      const decoded = jwt.verify(
+        token,
+        process.env.SECRET_KEY
+      );
 
-      // check role authorization
-      if (!allowedRoles.includes(decodedToken.role)) {
-        return res.status(403).json({ message: "Forbidden. You dont have access." });
+      // attach user to request
+      req.user = decoded;
+
+      // IMPORTANT FIX
+      // only check role IF role is provided
+      if (role && decoded.role !== role) {
+
+        return res.status(403).json({
+          message: "Forbidden. You dont have access."
+        });
+
       }
-      console.log("Decoded token", decodedToken.role)
-      decodedToken._id=decodedToken.userId;
-      console.log("Decoded token",decodedToken)
-      
-      req.user = decodedToken;
-
 
       next();
 
-    } catch (error) {
-      if(error.name==="TokenExpiredError")
-      {
-        return res.status(401).json({message:"Session expired,Plz Login again"})
-      }
-      if(error.name==="JsonWebTokenError")
-      {
-        return res.status(401).json({message:"Invalid token,Plz login again"})
-      }
-      // next(error);
-    }
+    } catch (err) {
 
+      return res.status(401).json({
+        message: "Invalid or expired token."
+      });
+
+    }
   };
 };
