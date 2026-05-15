@@ -38,10 +38,6 @@ useEffect(() => {
           element: <Home />
         },
         {
-          path: "article/:id",
-          element: <ArticleDetail />
-        },
-        {
           path: "login",
           element: <Login />
         },
@@ -83,12 +79,6 @@ useEffect(() => {
           path: "edit-article/:id",
           element: <ProtectedRoute allowedRoles={["AUTHOR"]}>
             <EditArticle />
-          </ProtectedRoute>
-        },
-        {
-          path: "article-detail/:id",
-          element: <ProtectedRoute allowedRoles={["AUTHOR", "ADMIN", "USER"]}>
-            <ArticleDetail />
           </ProtectedRoute>
         },
         {
