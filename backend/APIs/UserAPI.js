@@ -79,30 +79,60 @@ userRoute.get(
   }
 );
 //Add comment to an article(protected route)
-userRoute.put("/articles", verifyToken("USER"), async (req, res) => {
-  //get comment obj from req
-  const { userId, articleId, comment } = req.body;
-  //check user(req.user)
-  console.log("Userreq",req.body);
-  console.log("userId",userId);
-  if (userId !== req.user.userId) {
-    
-    return res.status(403).json({ message: "Forbidden" });
-  }
-  //find artcleby id and update
-  let articleWithComment = await ArticleModel.findOneAndUpdate(
-    { _id: articleId, isArticleActive: true },
-    { $push: { comments: { user: userId, comment } } },
-    { new: true, runValidators: true },
-  ).populate("comments.user", "firstName email");
+userRoute.put(
+  "/articles",
+  verifyToken("USER"),
+  async (req, res) => {
 
-  //if article not found
-  if (!articleWithComment) {
-    return res.status(404).json({ message: "Article not found" });
+    try {
+
+      const { articleId, comment } = req.body;
+
+      // take user directly from token
+      const userId = req.user.userId;
+
+      let articleWithComment =
+        await ArticleModel.findOneAndUpdate(
+          {
+            _id: articleId,
+            isArticleActive: true,
+          },
+          {
+            $push: {
+              comments: {
+                user: userId,
+                comment,
+              },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        )
+        .populate("comments.user", "firstName email");
+
+      if (!articleWithComment) {
+        return res.status(404).json({
+          message: "Article not found",
+        });
+      }
+
+      res.status(200).json({
+        message: "Comment added successfully",
+        payload: articleWithComment,
+      });
+
+    } catch (error) {
+
+      res.status(500).json({
+        message: "Server error",
+        error: error.message,
+      });
+
+    }
   }
-  //send res
-  res.status(200).json({ message: "comment added successfully", payload: articleWithComment });
-});
+);
 
 
 userRoute.get(

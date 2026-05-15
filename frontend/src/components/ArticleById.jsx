@@ -152,20 +152,17 @@ function ArticleByID() {
     setCommentLoading(true);
 
     try {
-      const currentUserId =
-        user?._id || user?.userId || user?.id;
 
       await axios.put(
-        `${API_BASE}/user-api/articles`,
-        {
-          userId: currentUserId,
-          articleId: id,
-          comment: comment.trim(),
-        },
-        {
-          withCredentials: true,
-        }
-      );
+  `${API_BASE}/user-api/articles`,
+  {
+    articleId: id,
+    comment: comment.trim(),
+  },
+  {
+    withCredentials: true,
+  }
+);
 
       toast.success("Comment added successfully");
 
