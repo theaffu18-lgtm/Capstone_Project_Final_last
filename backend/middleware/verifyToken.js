@@ -23,16 +23,19 @@ export const verifyToken = (role) => {
 
       // attach user to request
       req.user = decoded;
-
+console.log("Decoded user:", decoded);
+console.log("Required role:", role);
       // IMPORTANT FIX
       // only check role IF role is provided
-      if (role && decoded.role !== role) {
+if (
+  role &&
+  decoded.role?.toUpperCase() !== role.toUpperCase()
+) {
+  return res.status(403).json({
+    message: "Forbidden. You dont have access."
+  });
+}
 
-        return res.status(403).json({
-          message: "Forbidden. You dont have access."
-        });
-
-      }
 
       next();
 
