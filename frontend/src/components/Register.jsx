@@ -37,19 +37,21 @@ function Register() {
 
   const onRegister = async (newUser) => {
     const formData = new FormData();
-    console.log("profileImageUrl:", profileImageUrl);
 console.log("formData entries:");
 
 for (let pair of formData.entries()) {
   console.log(pair[0], pair[1]);
 }
     let { role, profileImageUrl, ...userObj } = newUser;
+    console.log("profileImageUrl:", profileImageUrl);
     Object.keys(userObj).forEach((key) => {
       formData.append(key, userObj[key]);
     });
     if (profileImageUrl && profileImageUrl[0]) {
       formData.append("profileImageUrl", profileImageUrl[0]);
+
     }
+    
 
     try {
       setLoading(true)
