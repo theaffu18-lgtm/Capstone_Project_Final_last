@@ -25,7 +25,7 @@ export const verifyToken = (...allowedRoles) => {
       if (!allowedRoles.includes(decodedToken.role)) {
         return res.status(403).json({ message: "Forbidden. You dont have access." });
       }
-      
+      console.log("Decoded token", decodedToken.role)
       decodedToken._id=decodedToken.userId;
       console.log("Decoded token",decodedToken)
       
