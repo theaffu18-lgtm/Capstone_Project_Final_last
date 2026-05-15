@@ -87,10 +87,10 @@ useEffect(() => {
         },
         {
           path: "article-detail/:id",
-          element: <ProtectedRoute allowedRoles={["USER"]}>
+          element: <ProtectedRoute allowedRoles={["AUTHOR", "ADMIN", "USER"]}>
             <ArticleDetail />
           </ProtectedRoute>
-        }
+        },
         {
           path: "unauthorized",
           element: <Unauthorized />
