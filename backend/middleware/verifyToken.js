@@ -20,12 +20,12 @@ export const verifyToken = (...allowedRoles) => {
 
       // verify token
       let decodedToken = jwt.verify(token, process.env.JWT_SECRETKEY);
-
+      console.log("Decoded token", decodedToken.role)
       // check role authorization
       if (!allowedRoles.includes(decodedToken.role)) {
         return res.status(403).json({ message: "Forbidden. You dont have access." });
       }
-      console.log("Decoded token", decodedToken.role)
+      
       decodedToken._id=decodedToken.userId;
       console.log("Decoded token",decodedToken)
       
