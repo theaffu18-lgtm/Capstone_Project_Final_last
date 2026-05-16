@@ -1,6 +1,11 @@
 import { UserTypeModel } from "../models/userModel.js";
 
 export const checkAuthor = async (req, res, next) => {
+  console.log("Checking author with request data:", {
+    body: req.body,
+    params: req.params,
+    user: req.user
+  });
   //get author id
   let aid = req.body?.author || req.params?.authorId;
   console.log("Author ID from request:", aid);
