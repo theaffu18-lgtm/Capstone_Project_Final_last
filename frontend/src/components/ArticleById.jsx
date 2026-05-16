@@ -45,7 +45,7 @@ function ArticleByID() {
   const [error, setError] = useState(null);
   const [comment, setComment] = useState("");
   const [commentLoading, setCommentLoading] = useState(false);
-  console.log("Article comments:", article?.comments?.firstName);
+  console.log("Article comments:", article?.comments?.user?.firstName);
 
   useEffect(() => {
     const isAuthorPopulated =
@@ -300,7 +300,7 @@ const addComment = async (e) => {
                     <div className="text-[11px] text-[#6e6e73]">
                       <span className="font-bold text-[#1d1d1f]">
                         {item.user?.firstName}{" "}
-                        {item.user?.lastName} || "Unknown User"
+                        {item.user?.lastName}
                       </span>
 
                       <span className="mx-2 opacity-50">
