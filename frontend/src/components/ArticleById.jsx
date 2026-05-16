@@ -45,6 +45,7 @@ function ArticleByID() {
   const [error, setError] = useState(null);
   const [comment, setComment] = useState("");
   const [commentLoading, setCommentLoading] = useState(false);
+  console.log("Article comments:", article?.comments?.firstName);
 
   useEffect(() => {
     const isAuthorPopulated =
