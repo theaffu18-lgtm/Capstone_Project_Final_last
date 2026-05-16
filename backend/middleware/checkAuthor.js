@@ -7,7 +7,7 @@ export const checkAuthor = async (req, res, next) => {
     user: req.user
   });
   //get author id
-  let aid = req.body?.author || req.params?.authorId;
+  let aid = req.user?.userId||req.body?.author || req.params?.authorId ;
   console.log("Author ID from request:", aid);
   //verify author
   let author = await UserTypeModel.findById(aid);
