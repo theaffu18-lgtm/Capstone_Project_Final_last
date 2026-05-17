@@ -17,7 +17,7 @@ function Home() {
 
             <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
               Welcome to
-              <span className="text-blue-600"> Blog App</span>
+              <span className="text-blue-600"> Blog Sphere</span>
             </h1>
 
             <p className="text-gray-600 text-lg leading-8 mb-8">
