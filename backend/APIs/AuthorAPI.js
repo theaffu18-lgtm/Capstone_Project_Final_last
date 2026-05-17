@@ -133,6 +133,38 @@ authorRoute.get(
 
     }
 });
+// get all articles of author
+authorRoute.get(
+  "/articles/:authorId",
+  verifyToken("AUTHOR"),
+  checkAuthor,
+  async (req, res) => {
+
+    try {
+
+      let aid = req.params.authorId;
+
+      let articles = await ArticleModel.find({
+        author: aid,
+      })
+      .populate(
+        "author",
+        "firstName lastName email"
+      );
+
+      res.status(200).json({
+        message: "articles",
+        payload: articles,
+      });
+
+    } catch (error) {
+
+      res.status(500).json({
+        message: error.message,
+      });
+
+    }
+});
 //edit article(protected route)
 authorRoute.put("/articles",verifyToken("AUTHOR") ,checkAuthor,async (req, res) => {
   let { articleId, title, category, content } = req.body;
