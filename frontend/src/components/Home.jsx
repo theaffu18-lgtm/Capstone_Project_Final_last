@@ -40,7 +40,7 @@ function Home() {
               <div className="flex flex-wrap gap-5">
 
                 <Link
-                  to="/signin"
+                  to="/login"
                   className="px-8 py-4 rounded-2xl bg-white text-[#0066cc] font-bold text-lg shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   Start Reading
