@@ -47,7 +47,7 @@ function Home() {
                 </Link>
 
                 <Link
-                  to="/signup"
+                  to="/register"
                   className="px-8 py-4 rounded-2xl border border-white/40 text-white font-semibold text-lg backdrop-blur-md hover:bg-white/10 transition-all duration-300"
                 >
                   Become an Author
@@ -221,7 +221,7 @@ function Home() {
           </p>
 
           <Link
-            to="/signup"
+            to="/register"
             className="inline-block px-10 py-5 bg-white text-[#0066cc] rounded-2xl font-bold text-lg shadow-xl hover:scale-105 transition-all duration-300"
           >
             Get Started
