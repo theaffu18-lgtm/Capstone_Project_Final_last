@@ -206,6 +206,7 @@ const addComment = async (e) => {
   if (!article) {
     return null;
   }
+  console.log(article.comments);
 
   return (
     <div className={articlePageWrapper + " bg-white"}>

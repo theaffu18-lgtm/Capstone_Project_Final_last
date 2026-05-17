@@ -122,6 +122,9 @@ authorRoute.get(
         "firstName lastName email"
       )
       .exec();
+      console.log(
+  JSON.stringify(articles, null, 2)
+);
 
       console.log("Articles of author", articles);
 
