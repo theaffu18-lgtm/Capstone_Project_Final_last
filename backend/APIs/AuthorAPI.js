@@ -96,18 +96,52 @@ authorRoute.get(
     }
   }
 );
-//Read artiles of author(protected route)
-authorRoute.get("/articles/:authorId",verifyToken("AUTHOR") ,checkAuthor, async (req, res) => {
-  //get author id
-  let aid = req.params.authorId;
+//Read articles of author(protected route)
+authorRoute.get(
+  "/articles/:authorId",
+  verifyToken("AUTHOR"),
+  checkAuthor,
+  async (req, res) => {
 
-  //read atricles by this author which are acticve
-  let articles = await ArticleModel.find({ author: aid }).populate("author", "firstName email").populate("comments.user", "firstName lastName email").exec();
-  //send res
-  console.log("Articles of author", articles);
-  res.status(200).json({ message: "articles", payload: articles });
+    try {
+
+      // get author id
+      let aid = req.params.authorId;
+
+      // read articles of this author
+      let articles = await ArticleModel.find({
+        author: aid,
+        isArticleActive: true,
+      })
+      .populate(
+        "author",
+        "firstName lastName email"
+      )
+      .populate(
+        "comments.user",
+        "firstName lastName email"
+      )
+      .exec();
+
+      console.log("Articles of author", articles);
+
+      // send response
+      res.status(200).json({
+        message: "articles",
+        payload: articles,
+      });
+
+    } catch (error) {
+
+      console.log(error);
+
+      res.status(500).json({
+        message: "Server error",
+        error: error.message,
+      });
+
+    }
 });
-
 //edit article(protected route)
 authorRoute.put("/articles",verifyToken("AUTHOR") ,checkAuthor,async (req, res) => {
   let { articleId, title, category, content } = req.body;
