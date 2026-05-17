@@ -131,8 +131,6 @@ const refreshArticle = async () => {
 
   try {
 
-    console.log("Refreshing from:", endpoint);
-
     const res = await axios.get(endpoint, {
       withCredentials: true,
     });
@@ -206,7 +204,7 @@ const addComment = async (e) => {
   if (!article) {
     return null;
   }
-  console.log(article.comments);
+ 
 
   return (
     <div className={articlePageWrapper + " bg-white"}>
