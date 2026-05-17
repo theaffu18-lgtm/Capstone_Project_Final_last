@@ -45,7 +45,7 @@ function ArticleByID() {
   const [error, setError] = useState(null);
   const [comment, setComment] = useState("");
   const [commentLoading, setCommentLoading] = useState(false);
-  console.log("Article comments:", article?.comments?.user?.firstName);
+  
 
   useEffect(() => {
     const isAuthorPopulated =
@@ -54,6 +54,11 @@ function ArticleByID() {
     const isCommentsPopulated =
       !article?.comments?.length ||
       typeof article.comments[0].user === "object";
+      console.log("ARTICLE CHECK:", {
+        hasArticle: !!article,
+        hasAuthor: !!article?.author,
+        hasComments: !!article?.comments,
+      });
 
     if (
       article &&

@@ -51,8 +51,6 @@ export let useAuth = create((set) => ({
                 currentUser: res.data.payload,
                 isAuthenticated: true
             })
-            console.log("Auth check response:", res.data);
-            console.log("Current user after auth check:", res.data.payload);
         }catch(err){
             set({
                 loading: false,
