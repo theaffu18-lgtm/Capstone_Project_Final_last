@@ -45,11 +45,14 @@ export let useAuth = create((set) => ({
         try{
             set({loading: true, error: null})
             const res = await axios.get(`${API_BASE}/common-api/check-auth?t=${Date.now()}`, {withCredentials: true})
+
             set({
                 loading: false,
                 currentUser: res.data.payload,
                 isAuthenticated: true
             })
+            console.log("Auth check response:", res.data);
+            console.log("Current user after auth check:", res.data.payload);
         }catch(err){
             set({
                 loading: false,
