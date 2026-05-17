@@ -98,21 +98,15 @@ authorRoute.get(
 );
 //Read articles of author(protected route)
 authorRoute.get(
-  "/articles/:authorId",
+  "/article/:id",
   verifyToken("AUTHOR"),
-  checkAuthor,
   async (req, res) => {
 
     try {
 
-      // get author id
-      let aid = req.params.authorId;
-
-      // read articles of this author
-      let articles = await ArticleModel.find({
-        author: aid,
-        isArticleActive: true,
-      })
+      const article = await ArticleModel.findById(
+        req.params.id
+      )
       .populate(
         "author",
         "firstName lastName email"
@@ -120,27 +114,21 @@ authorRoute.get(
       .populate(
         "comments.user",
         "firstName lastName email"
-      )
-      .exec();
+      );
+
       console.log(
-  JSON.stringify(articles, null, 2)
-);
+        JSON.stringify(article, null, 2)
+      );
 
-      console.log("Articles of author", articles);
-
-      // send response
       res.status(200).json({
-        message: "articles",
-        payload: articles,
+        message: "article",
+        payload: article,
       });
 
     } catch (error) {
 
-      console.log(error);
-
       res.status(500).json({
-        message: "Server error",
-        error: error.message,
+        message: error.message,
       });
 
     }
