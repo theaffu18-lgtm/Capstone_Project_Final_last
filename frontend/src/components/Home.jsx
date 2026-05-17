@@ -28,14 +28,14 @@ function Home() {
             <div className="flex gap-4">
 
               <Link
-                to="/signin"
+                to="/login"
                 className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
               >
                 Explore
               </Link>
 
               <Link
-                to="/signup"
+                to="/login"
                 className="border border-gray-300 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition"
               >
                 Get Started
