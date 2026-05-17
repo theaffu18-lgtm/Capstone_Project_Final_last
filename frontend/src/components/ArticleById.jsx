@@ -54,11 +54,6 @@ function ArticleByID() {
     const isCommentsPopulated =
       !article?.comments?.length ||
       typeof article.comments[0].user === "object";
-      console.log("ARTICLE CHECK:", {
-        hasArticle: !!article,
-        hasAuthor: !!article?.author,
-        hasComments: !!article?.comments,
-      });
 
     if (
       article &&
