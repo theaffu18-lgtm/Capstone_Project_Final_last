@@ -101,6 +101,7 @@ authorRoute.get(
   "/article/:id",
   verifyToken("AUTHOR"),
   async (req, res) => {
+    console.log("AUTHOR ARTICLE ROUTE HIT");
 
     try {
 
@@ -111,10 +112,7 @@ authorRoute.get(
         "author",
         "firstName lastName email"
       )
-      .populate(
-        "comments.user",
-        "firstName lastName email"
-      );
+      .populate("comments.user", "firstName lastName email");
 
       console.log(
         JSON.stringify(article, null, 2)
@@ -139,6 +137,7 @@ authorRoute.get(
   verifyToken("AUTHOR"),
   checkAuthor,
   async (req, res) => {
+    console.log("GET ARTICLES OF AUTHOR ROUTE HIT");
 
     try {
 
@@ -150,7 +149,7 @@ authorRoute.get(
       .populate(
         "author",
         "firstName lastName email"
-      );
+      ).populate("comments.user", "firstName lastName email");
 
       res.status(200).json({
         message: "articles",
