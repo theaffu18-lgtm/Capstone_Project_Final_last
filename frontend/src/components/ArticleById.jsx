@@ -249,7 +249,7 @@ const addComment = async (e) => {
 
       {user?.role === "AUTHOR" &&
         String(article.author?._id || article.author) ===
-          String(user._id) && (
+          String(user._id || user.userId) && (
           <div
             className={
               articleActions +
