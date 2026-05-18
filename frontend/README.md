@@ -1,381 +1,136 @@
-# Blog App
+Blog App
 
-A full-stack MERN Blog Application with authentication, role-based authorization, article publishing, commenting system, admin moderation, and profile management.
+Overview
 
----
+Blog App is a modern full-stack blogging platform where:
 
-# Features
+Authors can create and manage articles
+Users can explore and comment on articles
+Admins can manage users and authors
 
-## Authentication & Authorization
+This frontend is built using React and provides a responsive and user-friendly interface for all roles.
 
-* JWT-based authentication
-* Secure cookie authentication
-* Role-based access control
-* Protected routes
-* Persistent login sessions
-
-## User Features
-
-* Register/Login
-* Upload profile image
-* View articles
-* Read article details
-* Add comments to articles
-* Manage profile
-
-## Author Features
-
-* Create articles
-* Edit articles
-* Delete/restore articles
-* Manage published articles
-* View comments on articles
-
-## Admin Features
-
-* View all users
-* View all authors
-* Block/unblock users
-* Platform moderation
-
-## Article System
-
-* Create articles
-* Edit articles
-* Soft delete/restore articles
-* Categorized articles
-* Comment system
-* Dynamic article pages
-
-## UI Features
-
-* Responsive design
-* Modern dashboard layout
-* Toast notifications
-* Loading states
-* Protected navigation
-* Reusable styling system
-
----
-
-# Tech Stack
-
-## Frontend
-
-* React.js
-* React Router DOM
-* Zustand
-* React Hook Form
-* Axios
-* Tailwind CSS
-* React Hot Toast
-
-## Backend
-
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* JWT Authentication
-* Multer
-* Cloudinary
-* Cookie Parser
-* CORS
-
----
-
-# Folder Structure
-
-## Frontend
-
-```txt
+Tech Stack
+Frontend Technologies
+React.js
+React Router DOM
+Axios
+Tailwind CSS
+Zustand (State Management)
+React Hot Toast
+Features
+Authentication
+User Signup
+User Login
+Role-based Authentication
+JWT Authentication using Cookies
+Protected Routes
+User Features
+View all articles
+Read article by ID
+Add comments on articles
+View profile
+Responsive UI
+Author Features
+Create articles
+Edit articles
+Delete/Restore articles
+View authored articles
+View comments on articles
+Admin Features
+View all users
+Block users
+Unblock users
+Manage platform users
+Folder Structure
 src/
 │
 ├── components/
+├── pages/
 ├── store/
 ├── styles/
 ├── config/
-├── constants/
-├── services/
-└── App.jsx
-```
-
-## Backend
-
-```txt
-backend/
-│
 ├── routes/
-├── models/
-├── middleware/
-├── services/
-├── config/
-├── controllers/
-└── server.js
-```
-
----
-
-# Installation
-
-## Clone Repository
-
+└── assets/
+Installation
+Clone Repository
 git clone <repository-url>
-
----
-
-# Frontend Setup
-
-## Navigate to frontend
-
+Move to Frontend Folder
 cd frontend
-
-## Install dependencies
+Install Dependencies
 npm install
+Environment Variables
 
-## Run frontend
+Create .env file:
+
+VITE_API_BASE_URL=http://localhost:4000
+Run Development Server
 npm run dev
-
-Frontend runs on:
-http://localhost:5173
-
----
-
-# Backend Setup
-
-## Navigate to backend
-
-cd backend
-
-## Install dependencies
-
-npm install
-
-## Start server
-
-npm run dev
-
-Backend runs on:
-http://localhost:4000
-
----
-
-# Environment Variables
-
-Create a `.env` file in backend:
-
-PORT=4000
-MONGO_URI=your_mongodb_connection
-SECRET_KEY=your_secret_key
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-
----
-
-# Authentication Flow
-
-1. User logs in
-2. Backend generates JWT token
-3. Token stored in HTTP-only cookie
-4. Frontend sends requests with credentials
-5. Middleware verifies token
-6. Protected routes authorize user roles
-
----
-
-# API Endpoints
-
-## Auth Routes
-
-### Register User
-
-```http
-POST /user-api/users
-```
-
-### Login
-
-```http
-POST /common-api/login
-```
-
-### Check Authentication
-
-```http
-GET /common-api/check-auth
-```
-
----
-
-# User Routes
-
-### Get All Articles
-
-```http
-GET /user-api/articles
-```
-
-### Get Article By ID
-
-```http
-GET /user-api/article/:id
-```
-
-### Add Comment
-
-```http
-PUT /user-api/articles
-```
-
----
-
-# Author Routes
-
-### Create Article
-
-```http
-POST /author-api/articles
-```
-
-### Update Article
-
-```http
-PUT /author-api/articles
-```
-
-### Toggle Article Status
-
-```http
-PATCH /author-api/articles/:id/status
-```
-
----
-
-# Admin Routes
-
-### Get All Users
-
-```http
-GET /admin-api/users
-```
-
-### Block User
-
-```http
-PUT /admin-api/block
-```
-
-### Unblock User
-
-```http
-PUT /admin-api/unblock
-```
-
----
-
-# Security Features
-
-* JWT authentication
-* HTTP-only cookies
-* Role-based middleware
-* Protected routes
-* Secure password storage
-* Input validation
-* Cookie-based authentication
-
----
-
-# Deployment
-
-## Frontend Deployment
-
-Recommended:
-
-* Vercel
-* Netlify
-
-## Backend Deployment
-
-Recommended:
-
-* Render
-* Railway
-
-## Database
-
-* MongoDB Atlas
-
----
-
-# Important Production Configurations
-
-## CORS
-
-```js
-app.use(cors({
-  origin: FRONTEND_URL,
-  credentials: true,
-}))
-```
-
-## Cookies
-
-```js
-res.cookie("token", token, {
-  httpOnly: true,
-  secure: true,
-  sameSite: "None",
+Main Pages
+Page	Description
+Home	Landing page
+Signin	User login
+Signup	User registration
+UserProfile	User dashboard
+AuthorProfile	Author dashboard
+AdminProfile	Admin dashboard
+ArticleByID	Single article view
+API Integration
+
+Frontend communicates with backend using Axios.
+
+Example:
+
+axios.get(`${API_BASE}/user-api/articles`, {
+  withCredentials: true
 })
-```
+State Management
 
----
+Zustand is used for:
 
-# Future Improvements
+Authentication state
+Current user details
+Loading state
 
-* React Query integration
-* Markdown editor
-* Article likes
-* Saved articles
-* Notifications
-* Pagination
-* Search functionality
-* Rich text editor
-* Dark mode
-* Realtime comments
-* Analytics dashboard
-* Email verification
-* Password reset
+Example:
 
----
+const currentUser = useAuth(
+  state => state.currentUser
+)
+Routing
 
-# Common Issues
+React Router DOM is used for navigation.
 
-## Unauthorized Error
+Example:
 
-Check:
+<Route
+  path="/article/:id"
+  element={<ArticleByID />}
+/>
+Styling
 
-* JWT secret key
-* Cookie settings
-* CORS configuration
-* `withCredentials: true`
+Tailwind CSS is used for:
 
-## Cloudinary Upload Failure
+Responsive layouts
+Modern UI components
+Utility-first styling
+Security
+JWT Authentication
+Protected Routes
+Role-based Authorization
+Secure Cookie Authentication
+Future Improvements
+Rich Text Editor
+Like & Bookmark System
+Search & Filter
+Notifications
+Dark Mode
+Pagination
+Markdown Support
+Author
 
-Check:
+Developed by Harish Kodimala
 
-* Cloudinary environment variables
-* Multer configuration
+License
 
-## MongoDB Connection Error
-
-Check:
-
-* MongoDB Atlas IP whitelist
-* Connection string
-
----
-
-# Author
-
-Developed as a MERN full-stack project with role-based architecture a
+This project is developed for educational and learning purposes.
