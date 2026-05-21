@@ -30,12 +30,12 @@ function AuthorProfile() {
 
         <div className="flex justify-center gap-4">
           <button 
-            className={primaryBtn + " !px-10 !py-3 !text-base"}
+            className={primaryBtn + " px-10 py-3 text-base"}
             onClick={toggleShowArticles}
           >
             {showArticles ? 'Hide My Articles' : 'View My Articles'}
           </button>
-          <Link to="/add-article" className={secondaryBtn + " !px-10 !py-3 !text-base"}>
+          <Link to="/add-article" className={secondaryBtn + " px-10 py-3 text-base"}>
             + New Story
           </Link>
         </div>
