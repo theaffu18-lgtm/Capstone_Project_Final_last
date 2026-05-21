@@ -32,7 +32,7 @@ const corsOptions = {
 //Create express application
 const app = exp();
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+app.options("/*", cors(corsOptions));
 //add body parser middleware
 app.use(exp.json());
 //add cookie parser middleware
