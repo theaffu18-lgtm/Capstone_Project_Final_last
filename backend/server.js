@@ -10,33 +10,18 @@ import cors from 'cors'
 
 config(); //process.env
 
-const allowedOrigins = [
-  "https://capstoneprojectfinallast.vercel.app",
-  "http://localhost:5173",
-];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error(`CORS policy violation: origin ${origin} not allowed`));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  optionsSuccessStatus: 200,
-};
 
 //Create express application
-const app = exp();
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+const app = exp();app.use(cors({
+  origin: ["https://capstoneprojectfinallast.vercel.app","http://localhost:5173"],
+   credentials: true
+ }));
+
 //add body parser middleware
 app.use(exp.json());
 //add cookie parser middleware
-app.use(cookieParser())
+app.use(cookieParser());
 //connect APIs
 app.use("/user-api", userRoute);
 app.use("/author-api", authorRoute);
