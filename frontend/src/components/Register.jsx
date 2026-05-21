@@ -111,10 +111,7 @@ function Register() {
     <div className="
       min-h-screen
       flex items-center justify-center
-      bg-gradient-to-br
-      from-[#1a120b]
-      via-[#2c1d14]
-      to-[#1f140d]
+      bg-[radial-gradient(circle_at_top,#3b2a1f_0%,#1a120b_60%)]
       px-6 py-16
       relative
       overflow-hidden
@@ -129,11 +126,10 @@ function Register() {
         relative
         w-full
         max-w-2xl
-        backdrop-blur-2xl
-        bg-white/5
+        bg-[#24180f]/95
         border border-[#c8a97e]/20
         rounded-[36px]
-        shadow-2xl
+        shadow-[0_10px_50px_rgba(0,0,0,0.7)]
         p-10
       ">
 
@@ -162,7 +158,7 @@ function Register() {
             Create Account
           </h2>
 
-          <p className="text-[#d6c2a1] mt-4">
+          <p className="text-[#d6c2a1] mt-4 text-lg">
             Begin your luxury blogging journey
           </p>
 
@@ -249,13 +245,15 @@ function Register() {
                   w-full
                   px-5 py-4
                   rounded-2xl
-                  bg-[#2c1d14]/60
+                  bg-[#2c1d14]/80
                   border border-[#c8a97e]/20
                   text-[#f5deb3]
                   placeholder-[#bfa98a]
                   outline-none
                   focus:ring-2
                   focus:ring-[#c8a97e]/30
+                  focus:border-[#c8a97e]
+                  transition-all duration-300
                 "
                 {...register('firstName', {
                   required: 'Required'
@@ -289,13 +287,15 @@ function Register() {
                   w-full
                   px-5 py-4
                   rounded-2xl
-                  bg-[#2c1d14]/60
+                  bg-[#2c1d14]/80
                   border border-[#c8a97e]/20
                   text-[#f5deb3]
                   placeholder-[#bfa98a]
                   outline-none
                   focus:ring-2
                   focus:ring-[#c8a97e]/30
+                  focus:border-[#c8a97e]
+                  transition-all duration-300
                 "
                 {...register('lastName')}
               />
@@ -324,13 +324,15 @@ function Register() {
                 w-full
                 px-5 py-4
                 rounded-2xl
-                bg-[#2c1d14]/60
+                bg-[#2c1d14]/80
                 border border-[#c8a97e]/20
                 text-[#f5deb3]
                 placeholder-[#bfa98a]
                 outline-none
                 focus:ring-2
                 focus:ring-[#c8a97e]/30
+                focus:border-[#c8a97e]
+                transition-all duration-300
               "
               {...register('email', {
                 required: 'Required',
@@ -369,13 +371,15 @@ function Register() {
                 w-full
                 px-5 py-4
                 rounded-2xl
-                bg-[#2c1d14]/60
+                bg-[#2c1d14]/80
                 border border-[#c8a97e]/20
                 text-[#f5deb3]
                 placeholder-[#bfa98a]
                 outline-none
                 focus:ring-2
                 focus:ring-[#c8a97e]/30
+                focus:border-[#c8a97e]
+                transition-all duration-300
               "
               {...register('password', {
                 required: 'Required'
@@ -439,8 +443,9 @@ function Register() {
                   rounded-2xl
                   border-2 border-dashed border-[#c8a97e]/30
                   text-[#d6c2a1]
+                  bg-[#2c1d14]/80
                   hover:border-[#c8a97e]
-                  hover:bg-[#c8a97e]/5
+                  hover:bg-[#3b2a1f]
                   transition-all duration-300
                   cursor-pointer
                 ">
@@ -458,6 +463,7 @@ function Register() {
                     rounded-full
                     object-cover
                     border-2 border-[#c8a97e]
+                    shadow-lg
                   "
                 />
               )}
