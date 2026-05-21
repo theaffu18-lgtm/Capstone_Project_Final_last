@@ -5,38 +5,71 @@ function Home() {
 
   return (
 
-    <div className="min-h-screen bg-gray-50 flex items-center">
+    <div className="min-h-screen bg-gradient-to-br from-[#1a120b] via-[#3b2a1f] to-[#1f140d] text-[#f5deb3] overflow-hidden">
 
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      {/* Decorative Glow */}
+      <div className="absolute top-20 left-20 w-72 h-72 bg-[#c8a97e]/10 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#8b5e3c]/10 blur-3xl rounded-full"></div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 py-24">
+
+        <div className="grid md:grid-cols-2 gap-20 items-center">
 
           {/* LEFT CONTENT */}
-
           <div>
 
-            <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
-              Welcome to
-              <span className="text-blue-600"> Blog Sphere</span>
-            </h1>
-
-            <p className="text-gray-600 text-lg leading-8 mb-8">
-              Read articles, share ideas, and connect with
-              readers and authors from around the world.
+            <p className="uppercase tracking-[6px] text-[#c8a97e] text-sm mb-5">
+              Timeless Blogging Experience
             </p>
 
-            <div className="flex gap-4">
+            <h1 className="text-6xl md:text-7xl font-serif leading-tight mb-8">
+
+              Welcome to
+
+              <span className="block mt-3 text-transparent bg-clip-text bg-gradient-to-r from-[#f5deb3] to-[#c8a97e]">
+                Blog Sphere
+              </span>
+
+            </h1>
+
+            <p className="text-[#d6c2a1] text-lg leading-9 mb-10 max-w-xl">
+              Discover stories, ideas, and knowledge from passionate writers
+              around the world in a beautifully crafted vintage-inspired space.
+            </p>
+
+            <div className="flex flex-wrap gap-5">
 
               <Link
                 to="/login"
-                className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+                className="
+                  px-8 py-4
+                  rounded-full
+                  bg-gradient-to-r
+                  from-[#c8a97e]
+                  to-[#8b5e3c]
+                  text-[#1a120b]
+                  font-semibold
+                  tracking-wide
+                  shadow-xl
+                  hover:scale-105
+                  hover:shadow-[#c8a97e]/30
+                  transition-all duration-300
+                "
               >
-                Explore
+                Explore Blogs
               </Link>
 
               <Link
                 to="/login"
-                className="border border-gray-300 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition"
+                className="
+                  px-8 py-4
+                  rounded-full
+                  border border-[#c8a97e]
+                  text-[#f5deb3]
+                  hover:bg-[#c8a97e]/10
+                  backdrop-blur-md
+                  transition-all duration-300
+                "
               >
                 Get Started
               </Link>
@@ -46,44 +79,135 @@ function Home() {
           </div>
 
           {/* RIGHT CONTENT */}
+          <div className="relative">
 
-          <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
+            <div className="
+              backdrop-blur-xl
+              bg-white/5
+              border border-[#c8a97e]/20
+              rounded-[32px]
+              shadow-2xl
+              p-10
+            ">
 
-            <div className="space-y-6">
+              <div className="space-y-8">
 
-              <div className="border-b pb-4">
+                {/* Card 1 */}
+                <div className="
+                  group
+                  bg-[#2c1d14]/60
+                  border border-[#c8a97e]/10
+                  rounded-2xl
+                  p-6
+                  hover:translate-x-2
+                  hover:border-[#c8a97e]/40
+                  transition-all duration-300
+                ">
 
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Web Development
-                </h3>
+                  <div className="flex items-center gap-4 mb-4">
 
-                <p className="text-gray-600">
-                  Learn React, Node.js, and frontend development.
-                </p>
+                    <div className="
+                      w-14 h-14
+                      rounded-xl
+                      bg-gradient-to-br
+                      from-[#c8a97e]
+                      to-[#8b5e3c]
+                      flex items-center justify-center
+                      text-2xl
+                    ">
+                      💻
+                    </div>
 
-              </div>
+                    <h3 className="text-2xl font-serif text-[#f5deb3]">
+                      Web Development
+                    </h3>
 
-              <div className="border-b pb-4">
+                  </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Dynamic Programming
-                </h3>
+                  <p className="text-[#d6c2a1] leading-7">
+                    Master React, Node.js, backend systems,
+                    and modern frontend technologies.
+                  </p>
 
-                <p className="text-gray-600">
-                  Improve problem solving and coding skills.
-                </p>
+                </div>
 
-              </div>
+                {/* Card 2 */}
+                <div className="
+                  group
+                  bg-[#2c1d14]/60
+                  border border-[#c8a97e]/10
+                  rounded-2xl
+                  p-6
+                  hover:translate-x-2
+                  hover:border-[#c8a97e]/40
+                  transition-all duration-300
+                ">
 
-              <div>
+                  <div className="flex items-center gap-4 mb-4">
 
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  UI/UX Design
-                </h3>
+                    <div className="
+                      w-14 h-14
+                      rounded-xl
+                      bg-gradient-to-br
+                      from-[#c8a97e]
+                      to-[#8b5e3c]
+                      flex items-center justify-center
+                      text-2xl
+                    ">
+                      ⚡
+                    </div>
 
-                <p className="text-gray-600">
-                  Explore responsive and modern web design ideas.
-                </p>
+                    <h3 className="text-2xl font-serif text-[#f5deb3]">
+                      Dynamic Programming
+                    </h3>
+
+                  </div>
+
+                  <p className="text-[#d6c2a1] leading-7">
+                    Improve coding logic, algorithms,
+                    and advanced problem-solving techniques.
+                  </p>
+
+                </div>
+
+                {/* Card 3 */}
+                <div className="
+                  group
+                  bg-[#2c1d14]/60
+                  border border-[#c8a97e]/10
+                  rounded-2xl
+                  p-6
+                  hover:translate-x-2
+                  hover:border-[#c8a97e]/40
+                  transition-all duration-300
+                ">
+
+                  <div className="flex items-center gap-4 mb-4">
+
+                    <div className="
+                      w-14 h-14
+                      rounded-xl
+                      bg-gradient-to-br
+                      from-[#c8a97e]
+                      to-[#8b5e3c]
+                      flex items-center justify-center
+                      text-2xl
+                    ">
+                      🎨
+                    </div>
+
+                    <h3 className="text-2xl font-serif text-[#f5deb3]">
+                      UI/UX Design
+                    </h3>
+
+                  </div>
+
+                  <p className="text-[#d6c2a1] leading-7">
+                    Explore elegant interfaces, responsive layouts,
+                    and modern vintage-inspired experiences.
+                  </p>
+
+                </div>
 
               </div>
 
