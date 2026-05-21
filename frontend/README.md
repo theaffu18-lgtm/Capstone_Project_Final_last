@@ -1,136 +1,215 @@
-Blog App
+# 🎨 Frontend - Capstone Project Final
 
-Overview
+## ⚛️ React.js + Vite Frontend
 
-Blog App is a modern full-stack blogging platform where:
+Frontend application for the MERN Stack Blogging Platform with 🔐 authentication, 👨‍💻 role-based dashboards, ☁️ profile image uploads, and 📚 article management.
 
-Authors can create and manage articles
-Users can explore and comment on articles
-Admins can manage users and authors
+---
 
-This frontend is built using React and provides a responsive and user-friendly interface for all roles.
+# 🌟 Features
 
-Tech Stack
-Frontend Technologies
-React.js
-React Router DOM
-Axios
-Tailwind CSS
-Zustand (State Management)
-React Hot Toast
-Features
-Authentication
-User Signup
-User Login
-Role-based Authentication
-JWT Authentication using Cookies
-Protected Routes
-User Features
-View all articles
-Read article by ID
-Add comments on articles
-View profile
-Responsive UI
-Author Features
-Create articles
-Edit articles
-Delete/Restore articles
-View authored articles
-View comments on articles
-Admin Features
-View all users
-Block users
-Unblock users
-Manage platform users
-Folder Structure
-src/
+- ✅ Modern Responsive UI
+- ✅ User Authentication
+- ✅ Role-Based Dashboard
+- ✅ Protected Routes
+- ✅ Article Management
+- ✅ Admin Panel
+- ✅ Profile Image Upload
+- ✅ Toast Notifications
+
+---
+
+# 🛠️ Tech Stack
+
+- ⚛️ React.js
+- ⚡ Vite
+- 🌐 Axios
+- 🧭 React Router DOM
+- 🎨 Tailwind CSS
+- 🔔 React Hot Toast
+
+---
+
+# 📁 Folder Structure
+
+```bash
+frontend/
 │
-├── components/
-├── pages/
-├── store/
-├── styles/
-├── config/
-├── routes/
-└── assets/
-Installation
-Clone Repository
-git clone <repository-url>
-Move to Frontend Folder
-cd frontend
-Install Dependencies
+├── public/
+├── src/
+│   ├── components/
+│   ├── config/
+│   ├── styles/
+│   ├── assets/
+│   └── App.jsx
+│
+├── vite.config.js
+├── package.json
+└── .env
+```
+
+---
+
+# ⚙️ Installation
+
+## 📦 Install Dependencies
+
+```bash
 npm install
-Environment Variables
+```
 
-Create .env file:
+---
 
-VITE_API_BASE_URL=http://localhost:4000
-Run Development Server
+# 🔑 Environment Variables
+
+Create a `.env` file inside frontend folder.
+
+```env
+VITE_API_URL=http://localhost:4000
+```
+
+---
+
+# ▶️ Run Frontend
+
+```bash
 npm run dev
-Main Pages
-Page	Description
-Home	Landing page
-Signin	User login
-Signup	User registration
-UserProfile	User dashboard
-AuthorProfile	Author dashboard
-AdminProfile	Admin dashboard
-ArticleByID	Single article view
-API Integration
+```
 
-Frontend communicates with backend using Axios.
+✅ Frontend runs on:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+# 👥 User Roles
+
+## 👤 USER
+- 📖 Read Articles
+- 💬 Comment on Articles
+- 🖼️ Upload Profile Picture
+
+---
+
+## ✍️ AUTHOR
+- ➕ Create Articles
+- ✏️ Edit Articles
+- ❌ Delete Articles
+- 📚 Manage Own Articles
+
+---
+
+## 👑 ADMIN
+- 👀 View Users
+- 👀 View Authors
+- 🚫 Block Users
+- ✅ Unblock Users
+- 📊 View Dashboard Statistics
+
+---
+
+# 🧭 Routing System
+
+Protected routes based on roles:
+
+```bash
+/userdashboard
+/authordashboard
+/admindashboard
+```
+
+---
+
+# 📸 Media Features
+
+- ✅ Profile Picture Upload
+- ✅ Article Image Upload
+- ✅ Cloudinary Integration
+- ✅ Multer Backend Support
+
+---
+
+# 🔗 API Integration
+
+Frontend communicates with backend APIs using Axios.
 
 Example:
 
-axios.get(`${API_BASE}/user-api/articles`, {
-  withCredentials: true
-})
-State Management
+```javascript
+axios.get(`${import.meta.env.VITE_API_URL}/admin-api/users`)
+```
 
-Zustand is used for:
+---
 
-Authentication state
-Current user details
-Loading state
+# 📚 Main Components
 
-Example:
+- 🏠 Home
+- 🔐 Login
+- 📝 Register
+- 👤 UserProfile
+- ✍️ AuthorProfile
+- 👑 AdminProfile
+- ➕ AddArticle
+- ✏️ EditArticle
+- 📖 ArticleDetail
+- 🚫 Unauthorized
+- 🛡️ ProtectedRoute
 
-const currentUser = useAuth(
-  state => state.currentUser
-)
-Routing
+---
 
-React Router DOM is used for navigation.
+# 🎨 UI Features
 
-Example:
+- ✅ Responsive Design
+- ✅ Dynamic Rendering
+- ✅ Dashboard Navigation
+- ✅ Toast Notifications
+- ✅ Clean User Interface
+- ✅ Interactive Components
 
-<Route
-  path="/article/:id"
-  element={<ArticleByID />}
-/>
-Styling
+---
 
-Tailwind CSS is used for:
+# ☁️ Deployment
 
-Responsive layouts
-Modern UI components
-Utility-first styling
-Security
-JWT Authentication
-Protected Routes
-Role-based Authorization
-Secure Cookie Authentication
-Future Improvements
-Rich Text Editor
-Like & Bookmark System
-Search & Filter
-Notifications
-Dark Mode
-Pagination
-Markdown Support
-Author
+## 🚀 Deploy Frontend on Vercel
 
-Developed by Harish Kodimala
+### 📂 Root Directory
 
-License
+```bash
+frontend
+```
 
-This project is developed for educational and learning purposes.
+### 📦 Build Command
+
+```bash
+npm run build
+```
+
+### 📁 Output Directory
+
+```bash
+dist
+```
+
+---
+
+# 🔥 Future Improvements
+
+- 🌙 Dark Mode
+- 🔍 Search Functionality
+- ❤️ Like System
+- 🔖 Bookmark Feature
+- 🔔 Notifications
+- 💬 Real-time Chat
+- 🤖 AI Content Suggestions
+
+---
+
+# 👨‍💻 Developed By
+
+## ❤️ Mohammad Afthab
+
+- 🎓 CSE Student
+- 💻 MERN Stack Developer
+- 🚀 Passionate About Frontend Development
